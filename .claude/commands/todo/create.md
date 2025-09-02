@@ -21,7 +21,8 @@ Provide a description, GitHub issue URL, or Notion task:
 
 1. **Generate folder name**: Create ISO8601 timestamp with identifier
 2. **Create task folder**: Make the folder with `-open` suffix
-3. **Copy template**: Initialize the task with [index.md](../../templates/todos/task-index-template.md) template
+3. **Copy template**: Initialize the task with
+   [index.md](../../templates/todos/task-index-template.md) template
 4. **Update index**: Replace placeholders with actual task information
 
 Creating todo for: $ARGUMENTS

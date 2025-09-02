@@ -7,7 +7,8 @@ description: Mark a task as completed
 
 ## Description
 
-Mark a task as completed by renaming the folder from `-open` to `-completed` suffix and clearing it from the active task file.
+Mark a task as completed by renaming the folder from `-open` to `-completed`
+suffix and clearing it from the active task file.
 
 ## Usage
 
