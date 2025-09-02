@@ -1,0 +1,94 @@
+{
+  "name": "owllark-mono",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "args": {
+      "TZ": "${localEnv:TZ:Europe/London}",
+      "CLAUDE_CODE_VERSION": "latest",
+      "GIT_DELTA_VERSION": "0.18.2",
+      "ZSH_IN_DOCKER_VERSION": "1.2.0"
+    }
+  },
+  // Add the kernel/network bits Script 1 needs
+  "runArgs": [
+    "--cap-add=NET_ADMIN",
+    "--cap-add=NET_RAW",
+    "--sysctl",
+    "net.ipv6.conf.all.disable_ipv6=0",
+    "--sysctl",
+    "net.ipv6.conf.default.disable_ipv6=0"
+  ],
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "ms-python.debugpy",
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "expo.vscode-expo-tools",
+        "golang.go",
+        "rust-lang.rust-analyzer",
+        "vadimcn.vscode-lldb",
+        "eamodio.gitlens",
+        "ms-vscode.vscode-typescript-next",
+        "streetsidesoftware.code-spell-checker",
+        "ms-vscode.vscode-json",
+        "ms-vscode.hexdump",
+        "christian-kohler.path-intellisense",
+        "Boundary.baml-extension",
+        "charliermarsh.ruff"
+      ],
+      "settings": {
+        "editor.formatOnSave": true,
+        "[yaml]": {
+          "editor.defaultFormatter": "esbenp.prettier-vscode"
+        },
+        "[json]": {
+          "editor.defaultFormatter": "esbenp.prettier-vscode"
+        },
+        "[python]": {
+          // Use Ruff as the formatter
+          "editor.defaultFormatter": "charliermarsh.ruff",
+          // Run Ruff fixes + import sorting on save
+          "editor.codeActionsOnSave": {
+            "source.fixAll.ruff": "explicit",
+            "source.organizeImports.ruff": "explicit"
+          }
+        },
+        "terminal.integrated.defaultProfile.linux": "zsh",
+        "terminal.integrated.profiles.linux": {
+          "bash": {
+            "path": "bash",
+            "icon": "terminal-bash"
+          },
+          "zsh": {
+            "path": "zsh"
+          }
+        }
+      }
+    }
+  },
+  "remoteUser": "node",
+  "mounts": [
+    "source=claude-code-bashhistory-${devcontainerId},target=/commandhistory,type=volume",
+    "source=claude-code-config-${devcontainerId},target=/home/node/.claude,type=volume",
+    "source=${localWorkspaceFolder}/.devcontainer/init-firewall.sh,target=/usr/local/bin/init-firewall.sh,type=bind,consistency=delegated",
+    // "source=devcontainer-venv-${devcontainerId},target=/workspace/.venv,type=volume" // Optional for Python as container don't have access to local filesystem with Python binary symlinks.
+  ],
+  "containerEnv": {
+    "NODE_OPTIONS": "--max-old-space-size=4096",
+    "CLAUDE_CONFIG_DIR": "/home/node/.claude",
+    "POWERLEVEL9K_DISABLE_GITSTATUS": "true",
+    // Toggle GitHub CIDR ingestion for Script 1
+    "FETCH_GITHUB_CIDRS": "true"
+  },
+  "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=delegated",
+  "workspaceFolder": "/workspace",
+  // Create the venv once at image create time (kept from your config)
+  // "postCreateCommand": "direnv allow", // basic postCreate script
+  // For repos where you need to set up some dependency environments etc. The below command creates a .venv folder for the container
+  // and does uv sync to set up Python workspaces in a monorepo
+  // "postCreateCommand": "uv sync && direnv allow", // for uv monorepo
+  // Apply the firewall on every container start (important as some IPs are rolled periodically!)
+  "postStartCommand": "bash -lc 'sudo -n /usr/local/bin/init-firewall.sh || echo \"[firewall] Skipping: sudo NOPASSWD not configured (or missing).\"'"
+}
