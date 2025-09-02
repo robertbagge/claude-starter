@@ -9,15 +9,15 @@
 - [x] Create `.claude/commands/todo/scripts/shared/` directory
 - [x] Move existing utility scripts to shared folder
 
-### Step 2: Update Shared Scripts ⏳
+### Step 2: Update Shared Scripts ✅
 
-- [ ] Check and update script-to-script references
+- [x] Check and update script-to-script references (No updates needed - scripts don't call each other)
 
-### Step 3: Create Main Command Scripts ⏳
+### Step 3: Create Main Command Scripts ✅
 
-- [ ] Create `create.sh`
-- [ ] Create `list.sh`
-- [ ] Create `complete.sh`
+- [x] Create `create.sh`
+- [x] Create `list.sh`
+- [x] Create `complete.sh`
 
 ### Step 4: Update Command Markdown Files ⏳
 
@@ -48,3 +48,12 @@
   - todo_list_tasks_reverse.sh
   - todo_rename_completed.sh
   - todo_verify_folder.sh
+
+### [2025-09-02 16:04] - Step 2 & 3 Completed
+
+- Checked shared scripts - no inter-script references found
+- Created 3 main command scripts:
+  - create.sh - orchestrates folder creation workflow
+  - list.sh - lists todos in reverse chronological order
+  - complete.sh - renames folder from -open to -completed
+- Made all scripts executable
