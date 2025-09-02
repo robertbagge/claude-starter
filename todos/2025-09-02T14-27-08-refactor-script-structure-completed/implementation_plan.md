@@ -2,13 +2,16 @@
 
 ## Overview
 
-Refactor the todo command scripts to have a single entry point script for each command, with shared utilities moved to a dedicated shared folder. This will improve maintainability and create a cleaner separation between command logic and utility functions.
+Refactor the todo command scripts to have a single entry point script for
+each command, with shared utilities moved to a dedicated shared folder. This
+will improve maintainability and create a cleaner separation between command
+logic and utility functions.
 
 ## Current State Analysis
 
 ### Current Structure
 
-```
+```text
 .claude/commands/todo/
 ├── scripts/
 │   ├── todo_create_folder.sh
@@ -26,9 +29,11 @@ Refactor the todo command scripts to have a single entry point script for each c
 
 ### Current Command Files Reference Pattern
 
-Each .md file currently calls multiple individual scripts in sequence. For example:
+Each .md file currently calls multiple individual scripts in sequence. For
+example:
 
-- `create.md` calls: `todo_get_folder_name.sh`, `todo_create_folder.sh`, `todo_create_index.sh`
+- `create.md` calls: `todo_get_folder_name.sh`, `todo_create_folder.sh`,
+  `todo_create_index.sh`
 - `list.md` calls: `todo_list_tasks_reverse.sh`
 - `complete.md` calls: `todo_rename_completed.sh`
 
@@ -36,7 +41,7 @@ Each .md file currently calls multiple individual scripts in sequence. For examp
 
 ### New Structure
 
-```
+```text
 .claude/commands/todo/
 ├── scripts/
 │   ├── create.sh        # Main script for create command
@@ -62,16 +67,19 @@ Each .md file currently calls multiple individual scripts in sequence. For examp
 
 1. Create `.claude/commands/todo/scripts/shared/` directory
 2. Move all existing utility scripts to the shared folder:
+
    - Move `todo_create_folder.sh` → `shared/todo_create_folder.sh`
    - Move `todo_create_index.sh` → `shared/todo_create_index.sh`
    - Move `todo_get_folder_name.sh` → `shared/todo_get_folder_name.sh`
-   - Move `todo_list_tasks_reverse.sh` → `shared/todo_list_tasks_reverse.sh`
+   - Move `todo_list_tasks_reverse.sh` →
+     `shared/todo_list_tasks_reverse.sh`
    - Move `todo_rename_completed.sh` → `shared/todo_rename_completed.sh`
    - Move `todo_verify_folder.sh` → `shared/todo_verify_folder.sh`
 
 ### Step 2: Update Shared Scripts
 
-Update all shared scripts to reference other shared scripts with the new path:
+Update all shared scripts to reference other shared scripts with the new
+path:
 
 1. Check each shared script for references to other scripts
 2. Update any script-to-script calls to use the new `shared/` path
@@ -81,7 +89,7 @@ Update all shared scripts to reference other shared scripts with the new path:
 #### 3.1 Create `create.sh`
 
 ```bash
- #!/bin/bash
+#!/bin/bash
 # Main script for todo:create command
 # Usage: create.sh [identifier]
 
@@ -162,9 +170,11 @@ SHARED_DIR="$SCRIPT_DIR/shared"
 ### Step 5: Testing & Validation
 
 1. Test each command to ensure it works correctly:
+
    - `/todo:list` - Should list all tasks
    - `/todo:create "test task"` - Should create a new task folder
    - `/todo:complete` - Should rename folder
+
 2. Verify all paths are correct and scripts are executable
 3. Ensure error handling is preserved
 
@@ -172,11 +182,18 @@ SHARED_DIR="$SCRIPT_DIR/shared"
 
 ### For the AI Agent Implementation
 
-1. **Preserve Functionality**: The refactoring must maintain all existing functionality
-2. **Identifier Generation**: In `create.md`, the AI agent still needs to generate the identifier from the description - this stays as an instruction in the markdown file
-3. **Index File Editing**: In `create.md`, the AI agent still needs to edit the index.md file after creation - this instruction remains in the markdown file
-4. **Script Permissions**: Ensure all new scripts have executable permissions (`chmod +x`)
-5. **Path References**: Use relative paths from script location, not from working directory
+1. **Preserve Functionality**: The refactoring must maintain all existing
+   functionality
+2. **Identifier Generation**: In `create.md`, the AI agent still needs to
+   generate the identifier from the description - this stays as an instruction
+   in the markdown file
+3. **Index File Editing**: In `create.md`, the AI agent still needs to edit
+   the index.md file after creation - this instruction remains in the markdown
+   file
+4. **Script Permissions**: Ensure all new scripts have executable permissions
+   (`chmod +x`)
+5. **Path References**: Use relative paths from script location, not from
+   working directory
 6. **Error Handling**: Preserve all error handling from original scripts
 
 ### Migration Order
@@ -190,12 +207,14 @@ SHARED_DIR="$SCRIPT_DIR/shared"
 ## Success Criteria
 
 - [ ] All existing utility scripts moved to `shared/` folder
-- [ ] Five new main command scripts created (`create.sh`, `list.sh`, `complete.sh`, `select.sh`, `unselect.sh`)
+- [ ] Five new main command scripts created (`create.sh`, `list.sh`,
+  `complete.sh`, `select.sh`, `unselect.sh`)
 - [ ] All command markdown files updated to use single script calls
 - [ ] All commands functioning correctly
 - [ ] No broken references or paths
 - [ ] Error handling preserved
-- [ ] Special AI agent instructions (identifier generation, index editing) preserved in markdown files
+- [ ] Special AI agent instructions (identifier generation, index editing)
+  preserved in markdown files
 
 ## Rollback Plan
 

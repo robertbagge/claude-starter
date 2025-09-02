@@ -6,7 +6,8 @@ description: List all tasks with their status
 
 ## Description
 
-Display all todo tasks in reverse chronological order with their status and highlight the currently active task.
+Display all todo tasks in reverse chronological order with their status and
+highlight the currently active task.
 
 ## Usage
 

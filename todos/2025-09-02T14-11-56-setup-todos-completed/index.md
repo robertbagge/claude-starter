@@ -9,7 +9,6 @@ finish setting up todos
 | Agent        | File     | Purpose                 |
 | ------------ | -------- | ----------------------- |
 | task-manager | index.md | Task index and tracking |
-|              |          |                         |
 
 ## Notes
 
