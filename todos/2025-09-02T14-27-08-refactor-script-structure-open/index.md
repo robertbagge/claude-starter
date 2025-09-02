@@ -14,10 +14,10 @@ The "generate identifier" and "edit the index file instructions" should be intac
 
 ## Work Artifacts
 
-| Agent        | File     | Purpose                 |
-| ------------ | -------- | ----------------------- |
-| task-manager | index.md | Task index and tracking |
-|              |          |                         |
+| Agent        | File                   | Purpose                                          |
+| ------------ | ---------------------- | ------------------------------------------------ |
+| task-manager | index.md               | Task index and tracking                         |
+| planner  | implementation_plan.md | Detailed step-by-step refactoring instructions  |
 
 ## Notes
 
