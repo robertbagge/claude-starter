@@ -18,6 +18,7 @@ The "generate identifier" and "edit the index file instructions" should be intac
 | ------------ | ---------------------- | ------------------------------------------------ |
 | task-manager | index.md               | Task index and tracking                         |
 | planner  | implementation_plan.md | Detailed step-by-step refactoring instructions  |
+| implementer  | implementation.md      | Progress tracking and implementation log        |
 
 ## Notes
 
