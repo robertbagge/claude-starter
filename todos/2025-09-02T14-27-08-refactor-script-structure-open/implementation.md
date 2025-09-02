@@ -19,11 +19,11 @@
 - [x] Create `list.sh`
 - [x] Create `complete.sh`
 
-### Step 4: Update Command Markdown Files ⏳
+### Step 4: Update Command Markdown Files ✅
 
-- [ ] Update `create.md`
-- [ ] Update `list.md`
-- [ ] Update `complete.md`
+- [x] Update `create.md`
+- [x] Update `list.md`
+- [x] Update `complete.md`
 
 ### Step 5: Testing & Validation ⏳
 
@@ -57,3 +57,12 @@
   - list.sh - lists todos in reverse chronological order
   - complete.sh - renames folder from -open to -completed
 - Made all scripts executable
+
+### [2025-09-02 16:07] - Step 4 Completed
+
+- Updated all command markdown files to use single script calls:
+  - create.md - calls create.sh with identifier
+  - list.md - calls list.sh
+  - complete.md - calls complete.sh with folder name
+- Preserved special AI agent instructions in create.md
+- Removed references to non-existent scripts
