@@ -72,7 +72,8 @@
       "Bash(uname:*)",
       "Bash(test:*)",
       "Bash(sh:*)",
-      "Bash(bash:*)"
+      "Bash(bash:*)",
+      "Bash(gh pr create:*)"
     ],
     "deny": [
       "Read(.env*)",
