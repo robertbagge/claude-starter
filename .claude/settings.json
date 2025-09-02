@@ -1,6 +1,4 @@
 {
-  "includeCoAuthoredBy": false,
-  "enabledMcpjsonServers": ["context7"],
   "permissions": {
     "allow": [
       "mcp__context7__resolve-library-id",
@@ -39,7 +37,7 @@
       "Bash(diff:*)",
       "Bash(patch:*)",
       "Bash(git:*)",
-      "Bash(task:*",
+      "Bash(task:*)",
       "Bash(make:*)",
       "Bash(cmake:*)",
       "Bash(./gradlew:*)",
@@ -81,7 +79,8 @@
       "Read(.envrc*)",
       "Read(./secrets/**)",
       "Edit(./devcontainer/**)"
-    ],
-    "ask": []
-  }
+    ]
+  },
+  "includeCoAuthoredBy": false,
+  "enabledMcpjsonServers": ["context7"]
 }
