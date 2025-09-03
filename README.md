@@ -30,15 +30,12 @@ with claude code. It is based on these key principles:
 
 2. Make sure to setup a env with necessary API tokens MCP servers to work. See [.env.example](./.env.example).
 
-3. (Optional) If you are not using the devcontainer you will need to install
-   the MCP servers yourself.
-
 After this you are ready to run `claude "prompt"` and start coding. I often
 start with `claude "do nothing"` to not have claude start taking actions
 immediately. You can verify the setup by running the `/doctor`, `/permissions`
 and `agents` commands to see that the permissions and agents are setup.
 
-4. Create your first todo with `/todo:create <task description>`
+3. Create your first todo with `/todo:create <task description>`
    and get coding.
 
 ### Tools & techniques
