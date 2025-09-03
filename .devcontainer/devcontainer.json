@@ -85,7 +85,7 @@
   "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=delegated",
   "workspaceFolder": "/workspace",
   // Create the venv once at image create time (kept from your config)
-  // "postCreateCommand": "direnv allow", // basic postCreate script
+  "postCreateCommand": "direnv allow", // basic postCreate script
   // For repos where you need to set up some dependency environments etc. The below command creates a .venv folder for the container
   // and does uv sync to set up Python workspaces in a monorepo
   // "postCreateCommand": "uv sync && direnv allow", // for uv monorepo

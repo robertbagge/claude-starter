@@ -30,7 +30,8 @@ with claude code. It is based on these key principles:
 - [CLAUDE.md](./CLAUDE.md)
 - [.mcp.json](./.mcp.json)
 
-2. Make sure to setup a env with necessary API tokens MCP servers to work. See [.env.example](./.env.example).
+2. Make sure to setup a env with necessary API tokens for Claude Code and MCP servers to work. See [.env.example](./.env.example). Be careful with important secrets though as we
+can't guarantee claude's behaviour.
 
 After this you are ready to run `claude "prompt"` and start coding. I often
 start with `claude "do nothing"` to not have claude start taking actions

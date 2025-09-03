@@ -5,7 +5,8 @@
       "command": "npx",
       "args": [
         "-y",
-        "@upstash/context7-mcp"
+        "@upstash/context7-mcp",
+        "--api-key=${MCP_CONTEXT7_API_KEY}"
       ],
       "env": {}
     }
