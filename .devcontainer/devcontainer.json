@@ -1,5 +1,5 @@
 {
-  "name": "owllark-mono",
+  "name": "claude-starter",
   "build": {
     "dockerfile": "Dockerfile",
     "args": {
@@ -72,7 +72,7 @@
   "mounts": [
     "source=claude-code-bashhistory-${devcontainerId},target=/commandhistory,type=volume",
     "source=claude-code-config-${devcontainerId},target=/home/node/.claude,type=volume",
-    "source=${localWorkspaceFolder}/.devcontainer/init-firewall.sh,target=/usr/local/bin/init-firewall.sh,type=bind,consistency=delegated",
+    "source=${localWorkspaceFolder}/.devcontainer/init-firewall.sh,target=/usr/local/bin/init-firewall.sh,type=bind,consistency=delegated"
     // "source=devcontainer-venv-${devcontainerId},target=/workspace/.venv,type=volume" // Optional for Python as container don't have access to local filesystem with Python binary symlinks.
   ],
   "containerEnv": {

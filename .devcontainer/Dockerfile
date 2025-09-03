@@ -28,6 +28,15 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
   direnv \
   && apt-get clean && rm -rf /var/lib/apt/lists/*
 
+# Install markdownlint-cli2
+RUN npm install -g markdownlint-cli2
+
+# Install lychee link checker (binary download)
+RUN curl -L https://github.com/lycheeverse/lychee/releases/download/lychee-v0.20.1/lychee-x86_64-unknown-linux-gnu.tar.gz | \
+  tar xz && \
+  mv lychee /usr/local/bin/lychee && \
+  chmod +x /usr/local/bin/lychee
+
 # Set up locale to fix warnings
 RUN sed -i '/en_US.UTF-8/s/^# //g' /etc/locale.gen && locale-gen
 ENV LANG=en_US.UTF-8
