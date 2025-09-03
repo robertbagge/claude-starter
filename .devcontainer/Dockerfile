@@ -107,7 +107,6 @@ RUN bash -c '. "$HOME/.asdf/asdf.sh" && \
   asdf plugin add python https://github.com/asdf-community/asdf-python.git && \
   asdf plugin add task https://github.com/particledecay/asdf-task.git && \
   asdf plugin add uv https://github.com/asdf-community/asdf-uv.git && \
-  asdf plugin add direnv https://github.com/asdf-community/asdf-direnv.git && \
   asdf plugin add bun https://github.com/cometkim/asdf-bun.git && \
   asdf plugin add cocoapods https://github.com/ronnnnn/asdf-cocoapods.git && \
   asdf plugin add ruby https://github.com/asdf-vm/asdf-ruby.git && \
