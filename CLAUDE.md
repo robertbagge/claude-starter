@@ -1,4 +1,4 @@
-# CRITICAL: STARTUP BEHAVIOR
+# CLAUDE.md
 
 ## Core Principle
 

@@ -1,4 +1,4 @@
-# Claude starter
+# Claude Starter
 
 This repo includes a number of resources for safe and productive coding with AI
 agents, currently focusing on Claude Code. Key resources are:
@@ -10,7 +10,9 @@ agents, currently focusing on Claude Code. Key resources are:
   - CLAUDE.md
 - A devcontainer to create a safe environment for agentic coding.
 
-## Claude code setup
+## Key resources
+
+### Claude code setup
 
 The claude code setup aims to bring a lot of good defaults for being productive
 with claude code. It is based on these key principles:
@@ -20,7 +22,7 @@ with claude code. It is based on these key principles:
 2. Work is done through subagents and commands
 3. Context is gathered in files rather than in claude cli memory
 
-### Getting started
+#### Getting started
 
 1. Copy the following folders/files to your repo
 
@@ -32,15 +34,18 @@ with claude code. It is based on these key principles:
 
 After this you are ready to run `claude "prompt"` and start coding. I often
 start with `claude "do nothing"` to not have claude start taking actions
-immediately. You can verify the setup by running the `/doctor`, `/permissions`
+immediately. You can verify the setup by running `/status` to see that
+the MCP servers are installed etc.
+
+the `/doctor`, `/permissions`
 and `agents` commands to see that the permissions and agents are setup.
 
 3. Create your first todo with `/todo:create <task description>`
    and get coding.
 
-### Tools & techniques
+#### Tools & techniques
 
-#### Research - Planning - Coding pattern
+##### Research - Planning - Coding pattern
 
 At the moment the pattern of splitting tasks into a research stage, a planning
 stage and a coding stage is quite popular. Each of these stages starts with a
@@ -49,7 +54,10 @@ clear claude code context and reads/save context from files.
 This ensures that each stage just get exactly what it needs to perform a task
 to high quality.
 
-#### Todo tool
+> This approach also consumes significantly less tokens
+> than ongoing prompting.
+
+##### Todo tool
 
 To facilitate context gathering there is a small todo tool with three commands
 included.
@@ -78,24 +86,28 @@ to save their context there for other agents to pick up, pure prompt example:
 >
 > Create a git commit when you are done with your research.
 
-### CLAUDE.md
+#### CLAUDE.md
 
 The CLAUDE.md is kept tiny as it is included in every context. Guidelines
 should be provided through commands, subagent definitions and prompts.
 
-### Commands
+#### Commands
 
 See [.claude/commands](./.claude/commands/) for a full list of commands.
 
-### Agents
+#### Agents
 
 _Agent definitions will be added soon_
 
-### MCP servers
+#### MCP servers
 
 See [.mcp.json] for a list of default MCP servers.
 
-## Devcontainer
+#### Modifications
+
+Update commands, agents, mcp-servers, CLAUDE.md etc as you see fit.
+
+### Devcontainer
 
 The devcontainer setup aims to create a safe environment for agentic coding.
 It includes a number of base packages and programming languages as well
@@ -105,7 +117,7 @@ Coding in a devcontainer with a strong firewall means you can relax agent
 permissions without having to worry that it might access other things on
 your filesystem or the Internet.
 
-### Getting started
+#### Getting started
 
 1. Copy the .devcontainer to wherever you want it
 2. Make modifications as required
@@ -119,9 +131,9 @@ your filesystem or the Internet.
 - Github CLI - `gh auth login` and `gh auth setup-git`
 - Claude itself unless you have an api key
 
-### Modifications
+#### Modifications
 
-**1. Add a new language or tool**
+##### **1. Add a new language or tool**
 
 If there is an asdf-vm plugin. Search for "asdf X plugin",
 e.g. "asdf python plugin"
@@ -133,7 +145,7 @@ If there is not an asdf-vm plugin. Add installation in Dockerfile.
 `apt-get` is preferred if supported. Otherwise use alternative install method.
 See installation of `markdownlint-cli2` and `lychee` for example.
 
-**2. Update firewall**
+##### **2. Update firewall**
 
 You might need to whitelist more domains to support your organization,
 dev environment and MCP-servers.
@@ -145,7 +157,7 @@ the IPs frequently. These require a bit more setup.
 For tooling I advice doing all installation as part of the container setup
 rather than at runtime as there are no firewall rules then.
 
-**3. Modify startup script**
+##### **3. Modify startup script**
 
 Different requirements requires different startup commands to load
 the environment properly. Modify the `postCreateCommand` and `postStartCommand`
@@ -162,7 +174,15 @@ For Jetbrains example see - https://github.com/JetBrains/devcontainers-examples/
 
 ## Development Guidelines
 
-### Install tools
+### Set up dev environment
+
+#### In devcontainer
+
+_No addional setup needed_
+
+#### On local
+
+##### Install tools
 
 - [asdf-vm](https://asdf-vm.com/)
 - [markdownlint-cli2](https://github.com/DavidAnson/markdownlint-cli2)
@@ -170,14 +190,14 @@ For Jetbrains example see - https://github.com/JetBrains/devcontainers-examples/
 
 ```bash
 
-asdf plugin add task # (Optional if you don't have the plugin already)
+asdf plugin add task ## (Optional if you don't have the plugin already)
 asdf install
 ```
 
-### Commands
+### Available commands
 
 ```bash
-# Runs on PRs
+## Runs on PRs
 task ci
 ```
 
