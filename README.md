@@ -22,7 +22,7 @@ with claude code. It is based on these key principles:
 2. Work is done through subagents and commands
 3. Context is gathered in files rather than in claude cli memory
 
-#### Getting started
+#### Getting started with Claude Code
 
 1. Copy the following folders/files to your repo
 
@@ -30,8 +30,9 @@ with claude code. It is based on these key principles:
 - [CLAUDE.md](./CLAUDE.md)
 - [.mcp.json](./.mcp.json)
 
-2. Make sure to setup a env with necessary API tokens for Claude Code and MCP servers to work. See [.env.example](./.env.example). Be careful with important secrets though as we
-can't guarantee claude's behaviour.
+1. Make sure to setup a env with necessary API tokens for Claude Code and MCP
+   servers to work. See [.env.example](./.env.example). Be careful with
+   important secrets though as we can't guarantee claude's behaviour.
 
 After this you are ready to run `claude "prompt"` and start coding. I often
 start with `claude "do nothing"` to not have claude start taking actions
@@ -41,7 +42,7 @@ the MCP servers are installed etc.
 the `/doctor`, `/permissions`
 and `agents` commands to see that the permissions and agents are setup.
 
-3. Create your first todo with `/todo:create <task description>`
+1. Create your first todo with `/todo:create <task description>`
    and get coding.
 
 #### Tools & techniques
@@ -76,7 +77,8 @@ to save their context there for other agents to pick up, pure prompt example:
 > and gather them in a list. Also includes some code samples.
 >
 > For the new implementation we want to keep it very clean. Make sure any
-> recommendations are following these guidelines https://github.com/robertbagge/clean-code/tree/main/react.
+> recommendations are following these guidelines
+> <https://github.com/robertbagge/clean-code/tree/main/react>.
 > For researching clerk. use context7.
 >
 > You are to gather resources, identifying issues and coming up with recommendations.
@@ -98,7 +100,7 @@ See [.claude/commands](./.claude/commands/) for a full list of commands.
 
 #### Agents
 
-_Agent definitions will be added soon_
+### Agent definitions will be added soon
 
 #### MCP servers
 
@@ -118,7 +120,7 @@ Coding in a devcontainer with a strong firewall means you can relax agent
 permissions without having to worry that it might access other things on
 your filesystem or the Internet.
 
-#### Getting started
+#### Getting started with Devcontainer
 
 1. Copy the .devcontainer to wherever you want it
 2. Make modifications as required
@@ -127,12 +129,12 @@ your filesystem or the Internet.
 - [VSCode](https://code.visualstudio.com/docs/devcontainers/containers)
 - [JetBrains](https://www.jetbrains.com/help/idea/connect-to-devcontainer.html)
 
-4. Authenticate to CLI tools that claude needs access to
+1. Authenticate to CLI tools that claude needs access to
 
 - Github CLI - `gh auth login` and `gh auth setup-git`
 - Claude itself unless you have an api key
 
-#### Modifications
+#### Devcontainer Modifications
 
 ##### **1. Add a new language or tool**
 
@@ -165,13 +167,14 @@ the environment properly. Modify the `postCreateCommand` and `postStartCommand`
 in [.devcontainer/devcontainer.json](./.devcontainer/devcontainer.json)
 to your needs.
 
-**4. IDE extensions**
+##### **4. IDE extensions**
 
 The base setup comes with a bunch of VSCode extension that are pre-installed.
 You can remove/add extensions as you see fit. For VSCode theme/ui extensions
 are the same as on your local machine.
 
-For Jetbrains example see - https://github.com/JetBrains/devcontainers-examples/blob/main/customizations/plugins/.devcontainer.json
+For Jetbrains example see -
+<https://github.com/JetBrains/devcontainers-examples/blob/main/customizations/plugins/.devcontainer.json>
 
 ## Development Guidelines
 
@@ -179,7 +182,7 @@ For Jetbrains example see - https://github.com/JetBrains/devcontainers-examples/
 
 #### In devcontainer
 
-_No addional setup needed_
+No additional setup needed
 
 #### On local
 
