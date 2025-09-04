@@ -31,12 +31,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 # Install markdownlint-cli2
 RUN npm install -g markdownlint-cli2
 
-# Install lychee link checker (binary download)
-RUN curl -L https://github.com/lycheeverse/lychee/releases/download/lychee-v0.20.1/lychee-x86_64-unknown-linux-gnu.tar.gz | \
-  tar xz && \
-  mv lychee /usr/local/bin/lychee && \
-  chmod +x /usr/local/bin/lychee
-
 # Set up locale to fix warnings
 RUN sed -i '/en_US.UTF-8/s/^# //g' /etc/locale.gen && locale-gen
 ENV LANG=en_US.UTF-8
@@ -111,7 +105,8 @@ RUN bash -c '. "$HOME/.asdf/asdf.sh" && \
   asdf plugin add cocoapods https://github.com/ronnnnn/asdf-cocoapods.git && \
   asdf plugin add ruby https://github.com/asdf-vm/asdf-ruby.git && \
   asdf plugin add bundler https://github.com/jonathanmorley/asdf-bundler.git && \
-  asdf plugin add terraform https://github.com/asdf-community/asdf-hashicorp.git'
+  asdf plugin add terraform https://github.com/asdf-community/asdf-hashicorp.git && \
+  asdf plugin add lychee https://github.com/robertbagge/asdf-lychee.git'
 
 # Copy .tool-versions and install all tools
 COPY --chown=node:node .tool-versions /home/node/.tool-versions
