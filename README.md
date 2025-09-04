@@ -10,6 +10,13 @@ agents, currently focusing on Claude Code. Key resources are:
   - CLAUDE.md
 - A devcontainer to create a safe environment for agentic coding.
 
+## Cloning the repo
+
+This repo uses submodules. To clone, please use
+`git clone --recursive https://github.com/robertbagge/claude-starter.git`
+
+To update the repo and the modules, use `git pull --recurse-submodules`
+
 ## Key resources
 
 ### Claude code setup
