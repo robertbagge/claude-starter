@@ -14,7 +14,7 @@
 
 set -euo pipefail
 
-readonly TEMPLATE_PATH=".claude/templates/todos/task-index-template.md"
+readonly TEMPLATE_PATH=".claude/templates/index.template.md"
 readonly TODOS_DIR="todos"
 
 # Validate input arguments
