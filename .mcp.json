@@ -20,7 +20,7 @@
       "command": "go",
       "args": [
         "run",
-        "mcp/markdown-writer/cmd/server/main.go"
+        "github.com/robertbagge/markdown-writer-mcp/cmd/markdown-writer-mcp@latest"
       ],
       "env": {}
     }
