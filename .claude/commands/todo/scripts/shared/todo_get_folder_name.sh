@@ -14,7 +14,7 @@
 
 set -euo pipefail
 
-readonly TIMESTAMP_FORMAT="%Y-%m-%dT%H-%M-%S"
+readonly DATE_FORMAT="%Y-%m-%d"
 
 # Validate input arguments
 if [[ $# -ne 1 ]]; then
@@ -41,7 +41,7 @@ if [[ -z "${SANITIZED_IDENTIFIER}" ]]; then
 fi
 
 # Generate timestamp
-if ! timestamp=$(date -u +"${TIMESTAMP_FORMAT}"); then
+if ! timestamp=$(date -u +"${DATE_FORMAT}"); then
     echo "Error: Failed to generate timestamp" >&2
     exit 1
 fi

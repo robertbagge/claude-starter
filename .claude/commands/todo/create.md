@@ -19,15 +19,15 @@ Provide a description, GitHub issue URL, or Notion task:
 
 ## Steps
 
-1. **Generate folder name**: Create ISO8601 timestamp with identifier
-2. **Create task folder**: Make the folder with `-open` suffix
+1. **Generate folder name**: Create identifier from description
+2. **Create task folder**: Make the folder
 3. **Copy template**: Initialize the task with
    [index.md](../../templates/index.template.md) template
 4. **Update index**: Replace placeholders with actual task information
 
 Creating todo for: $ARGUMENTS
 
-Generate a 1-3 word identifier (lowercase, hyphens only) from $ARGUMENTS.
+Generate a 2-4 word identifier (lowercase, hyphens only) from $ARGUMENTS.
 
 ```bash
 sh .claude/commands/todo/scripts/create.sh "[identifier]"

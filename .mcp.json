@@ -6,7 +6,21 @@
       "args": [
         "-y",
         "@upstash/context7-mcp",
-        "--api-key=${MCP_CONTEXT7_API_KEY}"
+        "--api-key",
+        "${CONTEXT7_API_KEY}"
+      ],
+      "env": {}
+    },
+    "figma": {
+      "type": "http",
+      "url": "http://127.0.0.1:3845/mcp"
+    },
+    "markdown-writer": {
+      "type": "stdio",
+      "command": "go",
+      "args": [
+        "run",
+        "mcp/markdown-writer/cmd/server/main.go"
       ],
       "env": {}
     }

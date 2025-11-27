@@ -32,7 +32,7 @@ if [[ -z "${FOLDER_NAME}" ]]; then
     exit 2
 fi
 
-readonly TASK_FOLDER="${TODOS_DIR}/${FOLDER_NAME}-open"
+readonly TASK_FOLDER="${TODOS_DIR}/${FOLDER_NAME}"
 readonly INDEX_FILE="${TASK_FOLDER}/index.md"
 
 # Validate template file exists

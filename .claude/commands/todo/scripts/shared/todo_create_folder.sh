@@ -31,7 +31,7 @@ if [[ -z "${FOLDER_NAME}" ]]; then
     exit 2
 fi
 
-readonly FULL_FOLDER_PATH="${TODOS_DIR}/${FOLDER_NAME}-open"
+readonly FULL_FOLDER_PATH="${TODOS_DIR}/${FOLDER_NAME}"
 
 # Create the task folder
 if ! mkdir -p "${FULL_FOLDER_PATH}"; then
